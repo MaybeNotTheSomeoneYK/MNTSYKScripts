@@ -4,7 +4,7 @@ local function pprint(...)
   print("\n\n\n"..(prefix and prefix or "[MNTSYKScripts]\n").."..str.."\n\n\n")
 end
 return function(p)
-  pprint("Thanks for using our script, AntiDeletion.luau!\nWith this everytime your character gets :Destroy() or .Parent=nil you'll always come back\n\n\n")
+  pprint("Thanks for using our script, AntiDeletion.luau!\nWith this everytime your character gets :Destroy() or .Parent=nil you'll always come back")
   local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
   pprint("Applying AntiDeletion to "..p.Name.."...")
   while true do 
