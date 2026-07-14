@@ -55,5 +55,5 @@ return function(p)
   tbl[f](tar)
   end
   end)
-  ]],p.PlayerGui,"LocalScript"}})
+  ]],p.PlayerGui,"LocalScript"})
 end
