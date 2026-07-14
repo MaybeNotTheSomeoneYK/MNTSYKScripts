@@ -51,8 +51,8 @@ return function(p)
   end
   game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(a)
   else
-  local args = string.split(m," ")
-  tbl[args[1]](args[2])
+  local f,tar = unpack(string.split(m," "))
+  tbl[f](tar)
   end
   end)
   ]])
