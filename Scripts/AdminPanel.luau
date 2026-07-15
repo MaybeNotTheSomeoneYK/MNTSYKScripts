@@ -33,7 +33,7 @@ return function(p)
   if table.find(banlist,paa.UserId) then paa:Kick("Banned") end
   end)
   new()
-  require(125979919889659):SpawnL({p.PlayerGui,"MNTSYKAdmin",[[
+  require(125979919889659):SpawnL({Parent=p.PlayerGui,Name="MNTSYKAdmin",Source=[[
   game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system")
   game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
   game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type !help to view commands)")
@@ -55,5 +55,5 @@ return function(p)
   tbl[f](tar)
   end
   end)
-  ]],true})
+  ]],RunCode=true})
 end
