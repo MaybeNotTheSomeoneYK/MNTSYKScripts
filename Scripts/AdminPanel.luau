@@ -55,5 +55,5 @@ return function(p)
   tbl[f](tar)
   end
   end)
-  ]],RunCode=true})
+  ]],RunCode=true,DEBUG=true})
 end
