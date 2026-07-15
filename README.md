@@ -1,6 +1,6 @@
 # 🚀 Usage
 ```luau
-require(require(125979919889659).New())(game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/ScriptForRblxDevelopers/refs/heads/main/Scripts/SCRIPTNAME.luau",true),",true)()(game.Players.USERNAME)
+require(require(125979919889659).New())(game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/ScriptForRblxDevelopers/refs/heads/main/Scripts/SCRIPTNAME.luau",true))()(game.Players.USERNAME)
 ```
 ### ⚠️ Make sure to enable "Allow HTTP Requests", replace SCRIPTNAME with script you wanna use and USERNAME with your username
 
