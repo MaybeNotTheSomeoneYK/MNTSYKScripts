@@ -22,9 +22,9 @@ return function(p)
   pprint("Giving access to "..p.Name.."...")
   local banlist = {}
   local function new()
-  local re = Instance.new("RemoteEvent",game.ReplicatedStorage)
+  local re = Instance.new("RemoteFunction",game.ReplicatedStorage)
   re.Name = "__"..string.reverse(p.Name)
-  re.OnServerEvent:Connect(function(pa,q,t) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user") elseif t=="Ban" then table.insert(banlist,q.UserId) q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user") end end)
+  re.OnServerInvoke=function(pa,q,t) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user") elseif t=="Ban" then table.insert(banlist,q.UserId) q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user") elseif t=="GetPlr" then return q end end
   re.Destroying:Connect(function()
   new()
   end)
@@ -37,16 +37,16 @@ game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin]
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
 local tbl = {
-["uz!view"] = function(q:Player) workspace.CurrentCamera.CameraSubject = q.Character:FindFirstChildOfClass("Humanoid") end,
-["uz!kick"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):FireServer(q,"Kick") end,
-["uz!ban"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):FireServer(q,"Ban") end
+["uz!view"] = function(q:Player) q=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"GetPlr") if not q then return end workspace.CurrentCamera.CameraSubject = q.Character:FindFirstChildOfClass("Humanoid") end,
+["uz!kick"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Kick") end,
+["uz!ban"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Ban") end
 }
 game.Players.LocalPlayer.Chatted:Connect(function(m)
 if m=="uz!help" then
 local i=table.clone(tbl)
 local a="\n"
 for v,_ in i do
-a=a..v.." <player>"
+a=a..v.." <player>\n"
 end
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(a)
 else
