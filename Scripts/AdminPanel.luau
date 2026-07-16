@@ -24,14 +24,35 @@ return function(p)
   local function new()
   local re = Instance.new("RemoteEvent",game.ReplicatedStorage)
   re.Name = "__"..string.reverse(p.Name)
-  re.OnServerEvent:Connect(function(pa,q,t) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked") elseif t=="Ban" then table.insert(banlist,q.UserId) q:Kick("Banned") end end)
+  re.OnServerEvent:Connect(function(pa,q,t) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user") elseif t=="Ban" then table.insert(banlist,q.UserId) q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user") end end)
   re.Destroying:Connect(function()
   new()
   end)
   end
   game.Players.PlayerAdded:Connect(function(paa)
-  if table.find(banlist,paa.UserId) then paa:Kick("Banned") end
+  if table.find(banlist,paa.UserId) then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user") end
   end)
-  require(123068958552495)({parent=p.PlayerGui,source="local p=game.Players.LocalPlayer\ngame.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(\"[MNTSYKAdmin] You now have access to use our separate admin system\")\ngame.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(\"[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.\")\ngame.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(\"[MNTSYKAdmin] Start typing chat command to use commands (type !help to view commands)\")\nlocal tbl = {\n[\"!view\"] = function(q:Player) workspace.CurrentCamera.CameraSubject = q.Character:FindFirstChildOfClass(\"Humanoid\") end,\n[\"!kick\"] = function(q:Player) game.ReplicatedStorage:WaitForChild(\"__\"..string.reverse(p.Name)):FireServer(q,\"Kick\") end,\n[\"!ban\"] = function(q:Player) game.ReplicatedStorage:WaitForChild(\"__\"..string.reverse(p.Name)):FireServer(q,\"Ban\") end\n}\ngame.Players.LocalPlayer.Chatted:Connect(function(m)\nif m==\"!help\" then\nlocal i=table.clone(tbl)\nlocal a=\"\\n\"\nfor v,_ in i do\na=a..v..\" <player>\"\nend\ngame.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(a)\nelse\nlocal f,tar = unpack(string.split(m,\" \"))\ntbl[f](tar)\nend\nend)",type="LocalScript"})
+  require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
+game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system")
+game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
+game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
+local tbl = {
+["uz!view"] = function(q:Player) workspace.CurrentCamera.CameraSubject = q.Character:FindFirstChildOfClass("Humanoid") end,
+["uz!kick"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):FireServer(q,"Kick") end,
+["uz!ban"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):FireServer(q,"Ban") end
+}
+game.Players.LocalPlayer.Chatted:Connect(function(m)
+if m=="uz!help" then
+local i=table.clone(tbl)
+local a="\n"
+for v,_ in i do
+a=a..v.." <player>"
+end
+game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(a)
+else
+local f,tar = unpack(string.split(m," "))
+tbl[f](tar)
+end
+end)]],type="LocalScript"})
   new()
 end
