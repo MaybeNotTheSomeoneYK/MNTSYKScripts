@@ -33,7 +33,7 @@ return function(p)
   if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(banlist["_"..tonumber(paa.UserId)] and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
-local __APVERSION="MNTSYK/AP :: build-1stfullvers-versionCmdAdded"
+local __APVERSION="MNTSYK/AP :: build-071626-1007-fixedhelpcmd"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
@@ -49,8 +49,10 @@ local i=table.clone(tbl)
 local a="\n"
 for v,_ in i do
 a=a..v
-if v=="uz!ban" or v=="uz!kick" then
+if table.find({"uz!ban","uz!kick"},v) then
 a=a.." <player> <reason>? "
+elseif table.find({"uz!view"},v) then
+a=a.." <player> "
 elseif v=="uz!version" then
 a=a
 end
