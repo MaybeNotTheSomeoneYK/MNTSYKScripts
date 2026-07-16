@@ -24,13 +24,13 @@ return function(p)
   local function new()
   local re = Instance.new("RemoteFunction",game.ReplicatedStorage)
   re.Name = "__"..string.reverse(p.Name)
-  re.OnServerInvoke=function(pa,q,t,c) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user"..(c.reason and "\n\n"..c.reason or "")) elseif t=="Ban" then banlist["_"..tonumber(q.UserId)]=c.reason q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(c.reason and "\n\n"..c.reason or "")) elseif t=="GetPlr" then return q end end
+  re.OnServerInvoke=function(pa,q,t,c) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="Ban" then banlist["_"..tonumber(q.UserId)]=c.reason q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="GetPlr" then return q end end
   re.Destroying:Connect(function()
   new()
   end)
   end
   game.Players.PlayerAdded:Connect(function(paa)
-  if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(banlist["_"..tonumber(paa.UserId)] and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
+  if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(banlist["_"..tonumber(paa.UserId)], "%s", "")>0 and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
 local __APVERSION="MNTSYK/AP :: build-071626-1007-fixedhelpcmd"
