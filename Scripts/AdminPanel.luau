@@ -38,8 +38,8 @@ game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin]
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
 local tbl = {
 ["uz!view"] = function(q:Player) q=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"GetPlr") if not q then return end workspace.CurrentCamera.CameraSubject = q.Character:FindFirstChildOfClass("Humanoid") end,
-["uz!kick"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Kick",{reason=table.concat({...}," ")})) end,
-["uz!ban"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Ban",{reason=table.concat({...}," ")})) end
+["uz!kick"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Kick",{reason=table.concat({...}," ")}) end,
+["uz!ban"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Ban",{reason=table.concat({...}," ")}) end
 }
 game.Players.LocalPlayer.Chatted:Connect(function(m)
 if m=="uz!help" then
