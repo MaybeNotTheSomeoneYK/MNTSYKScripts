@@ -34,6 +34,7 @@ return function(p)
   re.Name = "__"..string.reverse(p.Name)
   re.OnServerInvoke=function(pa,q,t,c) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" and getplr(q,true) then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="Ban" and getplr(q,true) then banlist["_"..tonumber(q.UserId)]=c.reason q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="GetPlr" then return getplr(q,c.eclusr) end end
   repeat
+  pcall(function() re.Parent = game.ReplicatedStorage end)
   task.wait()
   until (not pcall(function() re.Parent = game.ReplicatedStorage end))
   new()
@@ -42,7 +43,7 @@ return function(p)
   if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(banlist["_"..tonumber(paa.UserId)], "%s", "")>0 and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
-local __APVERSION="MNTSYK/AP :: build-071726-1010PM-usrsDetection-fixes3.1"
+local __APVERSION="MNTSYK/AP :: build-071726-1022PM-usrsDetection-fixes3.2"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
