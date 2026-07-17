@@ -7,7 +7,7 @@ return function(p)
   pprint("This script still currently under construction, please expect the script to not function properly")
   pprint("Giving access to "..p.Name.."...")
   if not _G.MNTSYKAdminUsr then _G.MNTSYKAdminUsr = {} end
-  _G.MNTSYKAdminUsr["__"..p.UserId]=true task.spawn(function() repeat task.wait() until (not game.Players:FindFirstChild(p.Name)) _G.MNTSYKAdminUsr["__"..p.UserId]=false end) 
+  _G.MNTSYKAdminUsr["__"..p.UserId]=true task.spawn(function() repeat task.wait() until (not game.Players:FindFirstChild(p.Name)) _G.MNTSYKAdminUsr["__"..p.UserId]=false game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):Destroy() end) 
   local function getplr(name,checkusr)
   if not name then return end
   if typeof(name)=="Instance" then checkusr = ((checkusr and _G.MMNTSYKAdminUsr["__"..name.UserId]) and true or false) return (if checkusr then nil else name) end
@@ -42,7 +42,7 @@ return function(p)
   if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(banlist["_"..tonumber(paa.UserId)], "%s", "")>0 and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
-local __APVERSION="MNTSYK/AP :: build-071726-0929PM-usrsDetection-fixes3"
+local __APVERSION="MNTSYK/AP :: build-071726-1010PM-usrsDetection-fixes3.1"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
