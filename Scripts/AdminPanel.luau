@@ -3,37 +3,43 @@ local function pprint(...)
   local str = table.concat({...}," ")
   print("\n\n\n"..(prefix and prefix or "[MNTSYKScripts]\n")..str.."\n\n\n")
 end
-local function getplr(name)
+return function(p)
+  pprint("This script still currently under construction, please expect the script to not function properly")
+  pprint("Giving access to "..p.Name.."...")
+  if not _G.MNTSYKAdminUsr then _G.MNTSYKAdminUsr = {} else _G.MNTSYKAdminUsr["__"..p.UserId]=true task.spawn(function() repeat task.wait() until (not game.Players:FindFirstChild(p.Name)) table.remove(_G.MNTSYKAdminUsr,"__"..p.UserId) end) end
+  local function getplr(name,checkusr?)
   if not name then return end
-  if typeof(name)=="Instance" then return name end
-  if game.Players:FindFirstChild(name) then
+  if typeof(name)=="Instance" and not checkusr then return name end
+  if game.Players:FindFirstChild(name) and not checkusr then
   return game.Players[name]
   else
   for _,i in game.Players:GetPlayers() do
   if i.Name:lower():sub(1,#name)==name:lower() then
-  return i
+  return (checkusr and nil or i)
   end
   end
   return nil
   end
   end
-return function(p)
-  pprint("This script still currently under construction, please expect the script to not function properly")
-  pprint("Giving access to "..p.Name.."...")
   local banlist = {}
+  local function clear()
+  banlist={}
+  end
   local function new()
+  if not game.Players:FindFirstChild(p.Name) then return clear() end
   local re = Instance.new("RemoteFunction",game.ReplicatedStorage)
   re.Name = "__"..string.reverse(p.Name)
-  re.OnServerInvoke=function(pa,q,t,c) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="Ban" then banlist["_"..tonumber(q.UserId)]=c.reason q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="GetPlr" then return q end end
-  re.Destroying:Connect(function()
+  re.OnServerInvoke=function(pa,q,t,c) if pa.Name==p.Name then else return end q=getplr(q) if not q then return end if t=="Kick" and getplr(q,true) then q:Kick("Kicked by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="Ban" and getplr(q,true) then banlist["_"..tonumber(q.UserId)]=c.reason q:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(c.reason, "%s", "")>0 and "\n\n"..c.reason or "")) elseif t=="GetPlr" then return getplr(q,c.eclusr) end end
+  repeat
+  task.wait()
+  until (not pcall(function() re.Parent = game.ReplicatedStorage end))
   new()
-  end)
   end
   game.Players.PlayerAdded:Connect(function(paa)
   if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(banlist["_"..tonumber(paa.UserId)], "%s", "")>0 and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
-local __APVERSION="MNTSYK/AP :: build-071626-1007-fixedhelpcmd"
+local __APVERSION="MNTSYK/AP :: build-071726-0812PM-usrsDetection"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
