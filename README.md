@@ -12,5 +12,5 @@ Right after you leave the server, the script will automactically stop by itself
 Uploader of the loadstring module
 
 # 📷 Screenshots
-Screenshot of AdminPanel.luau version build-071626-1007-fixedhelpcmd usage:
+Screenshot of AdminPanel.luau version build-071626-1007-fixedhelpcmd in [pox's game, no sense to do anything](https://www.roblox.com/games/122130663121656/poxs-game-no-sense-to-do-anything) usage:
 <img width="492" height="255" alt="Screenshot 2026-07-16 221224" src="https://github.com/user-attachments/assets/68bc1107-0172-4b8f-ae63-fad96e786abf" />
