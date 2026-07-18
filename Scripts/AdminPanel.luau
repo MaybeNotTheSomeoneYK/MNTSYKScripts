@@ -44,7 +44,7 @@ return function(p)
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
 task.spawn(function() while true do local ins=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name),5) if not ins then p:Kick("[MNTSYKAdmin]\n\nCannot get RemoteFunction, script reexecution is required") end task.wait() end end)
-local __APVERSION="MNTSYK/AP :: build-071826-0919AM-usrsDetection-fixes3.3111"
+local __APVERSION="MNTSYK/AP :: build-071826-0927AM-cmdHandling-fixes0"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Start typing chat command to use commands (type uz!help to view commands)")
@@ -74,9 +74,8 @@ elseif string.sub(m,1,3)=="uz!" then
 local splited = string.split(m," ")
 local f=splited[1]
 local tar=splited[2]
-local all=unpack(splited,3)
 if not tbl[f] then return end
-tbl[f](tar,all)
+tbl[f](tar,unpack(splited,3))
 end
 end)]],type="LocalScript"})
   new()
