@@ -45,7 +45,7 @@ return function(p)
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
 task.spawn(function() while true do local ins=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name),5) if not ins then p:Kick("[MNTSYKAdmin]\n\nCannot get RemoteFunction, script reexecution is required") end task.wait() end end)
-local __APVERSION="MNTSYK/AP :: build-071926-1012AM-capitalizationSupport-fixes0"
+local __APVERSION="MNTSYK/AP :: build-071926-1018AM-capitalizationSupport-fixes0.1"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 task.wait()
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
@@ -56,7 +56,7 @@ local tbl = {
 ["uz!kick"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Kick",{reason=table.concat({...}," ")}) end;
 ["uz!ban"] = function(q:Player,...) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Ban",{reason=table.concat({...}," ")}) end;
 ["uz!kill"] = function(q:Player) game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):InvokeServer(q,"Kill") end;
-["uz!infjump"] = function() game.UserInputService.JumpRequest:Connect(function() p.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping) end) end;
+["uz!infjump"] = function() game.UserInputService.JumpRequest:Connect(function() (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping) end) end;
 ["uz!version"] = function() game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage(__APVERSION) end;
 }
 game.Players.LocalPlayer.Chatted:Connect(function(m)
