@@ -44,8 +44,9 @@ return function(p)
   if banlist["_"..tonumber(paa.UserId)] then paa:Kick("Banned by a MNTSYKScripts/AdminPanel.luau user"..(#string.gsub(banlist["_"..tonumber(paa.UserId)], "%s", "")>0 and "\n\n"..banlist["_"..tonumber(paa.UserId)] or "")) end
   end)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
+script.Parent=p.PlayerScripts
 task.spawn(function() while true do local ins=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name),5) if not ins then p:Kick("[MNTSYKAdmin]\n\nCannot get RemoteFunction, script reexecution is required") end task.wait() end end)
-local __APVERSION="MNTSYK/AP :: build-071926-1018AM-capitalizationSupport-fixes0.1"
+local __APVERSION="MNTSYK/AP :: build-071926-1050AM-capitalizationSupport-fixes0.2"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 task.wait()
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
@@ -80,7 +81,7 @@ local splited = string.split(m," ")
 local f=splited[1]:lower()
 local tar=splited[2]
 if not tbl[f] then return end
-tbl[f](tar,unpack(splited,3))
+pcall(function()tbl[f](tar,unpack(splited,3))end)
 end
 end)]],type="LocalScript"})
   new()
