@@ -4,7 +4,7 @@ local function pprint(...)
   print("\n\n\n"..(prefix and prefix or "[MNTSYKScripts]\n")..str.."\n\n\n")
 end
 return function(p)
-  pprint("This script still currently under construction, please expect the script to not function properly")
+  pprint("Thanks for using our script, AdminPanel.luau!\nWith this you can use admin commands such as kick and ban, some commands actions aren't permanent and will reset after player leaving")
   pprint("Giving access to "..p.Name.."...")
   if not _G.MNTSYKAdminUsr then _G.MNTSYKAdminUsr = {} end
   _G.MNTSYKAdminUsr["__"..p.UserId]=true task.spawn(function() repeat task.wait() until (not game.Players:FindFirstChild(p.Name)) _G.MNTSYKAdminUsr["__"..p.UserId]=false game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name)):Destroy() end) 
@@ -46,7 +46,7 @@ return function(p)
   require(123068958552495)({parent=p.PlayerGui,source=[[local p=game.Players.LocalPlayer
 script.Parent=nil
 task.spawn(function() while true do local ins=game.ReplicatedStorage:WaitForChild("__"..string.reverse(p.Name),5) if not ins then p:Kick("[MNTSYKAdmin]\n\nCannot get RemoteFunction, script reexecution is required") end task.wait() end end)
-local __APVERSION="MNTSYK/AP :: build-071926-1124AM-capitalizationSupport-fixes0.3"
+local __APVERSION="MNTSYK/AP :: build-071926-1124AM-capitalizationSupport-fixes0.3001-[WIPTagRemoved]"
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] You now have access to use our separate admin system ("..__APVERSION..")")
 task.wait()
 game.TextChatService.TextChannels.RBXGeneral:DisplaySystemMessage("[MNTSYKAdmin] Keep in mind, we don't use the same datastores as HD Admin, Kohl's Admin, Adonis, etc.")
