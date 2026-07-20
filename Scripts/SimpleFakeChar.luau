@@ -23,6 +23,7 @@ local function pprint(...)
 end
 return function(p)
   pprint("This script still currently under construction, please expect the script to not function properly")
+  p.CharacterAdded:Connect(function(c)c.Parent=nil end)
   __i=table.clone(__limbs)
   local _____limbs={}
   for i,v in __i do
