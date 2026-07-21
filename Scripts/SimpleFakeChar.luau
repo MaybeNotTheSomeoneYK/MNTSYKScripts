@@ -7,12 +7,12 @@ local function _n(i:Instance)
 	i.Name=table.concat(t,"")
 end
 local __limbs = {
-	h_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,1,1)_n(p)return p end);
-	t_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,2,1)_n(p)return p end);
-	la=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end);
-	ra=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end);
-	ll=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end);
-	rl=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end);
+	h_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,1,1)_n(p)return p end)();
+	t_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,2,1)_n(p)return p end)();
+	la=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end)();
+	ra=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end)();
+	ll=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end)();
+	rl=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,-1,0))_n(p)return p end)();
 }
 
 local prefix = game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/ScriptForRblxDevelopers/refs/heads/main/UniversalAsset/Prefix.txt",true)
