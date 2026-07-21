@@ -33,7 +33,7 @@ return function(p)
 		i=v:Clone()
 		_____limbs[index]=i
 		i.Parent=workspace:FindFirstChildOfClass("Terrain")
-		i.Anchored=true
+		i.Anchored=false
 		i.CanCollide=false
 		_n(i)
 		i:SetNetworkOwner(p)
