@@ -37,11 +37,12 @@ return function(p)
     i.CanCollide=false
     _n(i)
     i:SetNetworkOwner(p)
-    function __z()
-    i:GetPropertyChangedSignal("Parent"):Connect(function()
-    local ___q=pcall(function()i.Parent=workspace end)
-    if not ___q then i=v:Clone() i.Parent=workspace i.Anchored=false _n(i)i:SetNetworkOwner(p)_____limbs[index]=i __z()end
-    end
+    local function __z(_i)
+    _i:GetPropertyChangedSignal("Parent"):Connect(function()
+    local ___q=pcall(function()_i.Parent=workspace end)
+    if not ___q then _i=v:Clone() _i.Parent=workspace _i.Anchored=false _n(_i)i:SetNetworkOwner(p)_____limbs[index]=_i __z(_i)end
+    end)
+    __z(i)
   end
   task.spawn(function()while true do if _____limbs.t_ then _____limbs.t_:PivotTo(pos) end end end)
   while true do
