@@ -5,14 +5,15 @@ for _=1,50 do
 table.insert(t,string.split(__c,"")[math.random(1,#__c)])
 end
 i.Name=table.concat(t,"")
+i:GetPropertyChangedSignal("Name"):Once(function()_n(i)end)
 end
 local __limbs = {
-h_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,1,1)p.PivotOffset=CFrame.new(Vector3.new(0,-.5,0))_n(p) return p end)();
-t_=(function()local p=Instance.new("Part")p.Size=Vector3.new(2,2,1)_n(p)return p end)();
-la=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-ra=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-ll=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-rl=(function()local p=Instance.new("Part")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+h_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://5591363797")p.Size=Vector3.new(1.25,1.25,1.25)p.PivotOffset=CFrame.new(Vector3.new(0,-.5,0))_n(p) return p end)();
+t_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://76316612146587")p.Size=Vector3.new(2,2,1)_n(p)return p end)();
+la=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://82557091159947")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+ra=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://131826949635623")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+ll=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://109302786609504")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+rl=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://93063343924594")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
 }
 
 local prefix = nil
@@ -58,6 +59,9 @@ _n(i)
 if index=="h_" then 
 local g=Instance.new("BillboardGui",i)
 _n(g)
+local f=Instance.new("Decal",i)
+f.Texture="rbxassetid://16132434"
+_n(f)
 local t=Instance.new("TextLabel",g)
 _n(t)
 t.Text=p.DisplayName 
@@ -72,6 +76,7 @@ g.StudsOffset=Vector3.new(0,1,0)
 g.StudsOffsetWorldSpace=Vector3.new(0,1,0)
 local _backupg=g:Clone()
 local _backupt=t:Clone()
+local _backupf=f:Clone()
 local function _resg()
 g:GetPropertyChangedSignal("Parent"):Connect(function()
 local bool,_=pcall(function()g.Parent=i end)
@@ -86,6 +91,13 @@ if not bool then t=_backupt:Clone() t.Parent=g _rest() end
 end)
 end
 _rest()
+local function _resf()
+f:GetPropertyChangedSignal("Parent"):Connect(function()
+local bool,_=pcall(function()f.Parent=i end)
+if not bool then f=_backupf:Clone() f.Parent=i _resf() end
+end)
+end
+_resf()
 end
 local function __z(_i)
 _i:GetPropertyChangedSignal("Parent"):Connect(function()
