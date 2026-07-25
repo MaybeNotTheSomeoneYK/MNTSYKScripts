@@ -96,7 +96,7 @@ end)
 end
 __z(i)
 end
-task.spawn(function()while true do if _____limbs.t_ then _____limbs.t_:PivotTo(pos)_____limbs.h_:PivotTo(pos*CFrame.new(Vector3.new(0,1,0))) end task.wait() end end)
+task.spawn(function()while true do (p:FindFirstChildOfClass("Backpack")or Instance.new("Folder")):ClearAllChildren() if _____limbs.t_ then _____limbs.t_:PivotTo(pos)_____limbs.h_:PivotTo(pos*CFrame.new(Vector3.new(0,1,0))) end task.wait() end end)
 p.Destroying:Connect(function() for _,i in _____limbs do i:Destroy() end end)
 while true do
 local function _plafron()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5,1,0))*CFrame.Angles(math.rad(20),0,0) end
