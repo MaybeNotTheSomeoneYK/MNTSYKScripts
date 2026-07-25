@@ -43,6 +43,7 @@ end
 end)
 end
 end
+task.wait()
 until not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)end)
 end
 p.CharacterAdded:Connect(_func)
