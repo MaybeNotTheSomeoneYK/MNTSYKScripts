@@ -27,6 +27,7 @@ local function _func(c)
 c:WaitForChild("Humanoid").RequiresNeck=false 
 c:WaitForChild("Humanoid").HipHeight=2
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
+c.PrimaryPart.CanCollide=true
 for _,i in c:GetChildren() do 
 if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then 
 i:Destroy() 
