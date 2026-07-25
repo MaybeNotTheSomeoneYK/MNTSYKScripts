@@ -29,10 +29,10 @@ if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then
 i:Destroy() 
 else
 i:GetPropertyChangedSignal("Parent"):Connect(function()
-local e,_=pcall(function()i.Parent=c end)
+local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=2 end end)
 if not e then
 local e=Instance.new(i.ClassName,c)
-if e:IsA("BasePart") then e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name end
+if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=2 end
 end
 end)
 end
@@ -41,7 +41,7 @@ c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
 end
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
-task.spawn(function()while true do local a,b=pcall(function()p.Character.Parent = workspace pos=p.Character:GetPivot()end)if not a then p:LoadCharacterAsync()p.Character:PivotTo(pos)end task.wait()end end)
+task.spawn(function()while true do local a,b=pcall(function()p.Character.Parent=workspace pos=p.Character:GetPivot()end)if not a then p:LoadCharacterAsync()p.Character:PivotTo(pos)end task.wait()end end)
 p.Character=nil
 local __i=table.clone(__limbs)
 local _____limbs={}
@@ -64,6 +64,7 @@ t.TextStrokeColor3=Color3.fromRGB(84, 84, 84)
 t.TextColor3=Color3.fromRGB(255, 255, 255) 
 t.BackgroundTransparency=1 
 t.TextStrokeTransparency=0 
+t.Size=UDim2.new(1,0,1,0) 
 g.Size=UDim2.new(500,0,0.45,0) 
 g.StudsOffset=Vector3.new(0,1,0) 
 g.StudsOffsetWorldSpace=Vector3.new(0,1,0)
