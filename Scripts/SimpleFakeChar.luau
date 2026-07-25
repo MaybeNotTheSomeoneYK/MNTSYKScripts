@@ -8,12 +8,12 @@ i.Name=table.concat(t,"")
 i:GetPropertyChangedSignal("Name"):Once(function()_n(i)end)
 end
 local __limbs = {
-h_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://5591363797")p.Size=Vector3.new(1.25,1.25,1.25)p.PivotOffset=CFrame.new(Vector3.new(0,-.5,0))_n(p) return p end)();
-t_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://76316612146587")p.Size=Vector3.new(2,2,1)_n(p)return p end)();
-la=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://82557091159947")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-ra=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://131826949635623")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-ll=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://109302786609504")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
-rl=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://93063343924594")p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+h_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://5591363797")p.Locked=true p.Size=Vector3.new(1.25,1.25,1.25)p.PivotOffset=CFrame.new(Vector3.new(0,-.5,0))_n(p) return p end)();
+t_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://76316612146587")p.Locked=true p.Size=Vector3.new(2,2,1)_n(p)return p end)();
+la=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://82557091159947")p.Locked=true p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+ra=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://131826949635623")p.Locked=true p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+ll=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://109302786609504")p.Locked=true p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
+rl=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://93063343924594")p.Locked=true p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
 }
 
 local prefix = nil
@@ -74,6 +74,8 @@ t.Size=UDim2.new(1,0,1,0)
 g.Size=UDim2.new(500,0,0.45,0) 
 g.StudsOffset=Vector3.new(0,1,0) 
 g.StudsOffsetWorldSpace=Vector3.new(0,1,0)
+g.AlwaysOnTop=true
+g.MaxDistance=50
 local _backupg=g:Clone()
 local _backupt=t:Clone()
 local _backupf=f:Clone()
