@@ -86,6 +86,7 @@ _rest()
 end
 local function __z(_i)
 _i:GetPropertyChangedSignal("Parent"):Connect(function()
+if not (p.Parent==game.Players) then return end
 local ___q=pcall(function()_i.Parent=workspace:FindFirstChildOfClass("Terrain") end)
 if not ___q then _i=v:Clone() _i.Parent=workspace:FindFirstChildOfClass("Terrain") _i.Anchored=true _i.CanCollide=false _n(_i)_____limbs[index]=_i __z(_i)end
 end)
@@ -93,6 +94,7 @@ end
 __z(i)
 end
 task.spawn(function()while true do if _____limbs.t_ then _____limbs.t_:PivotTo(pos)_____limbs.h_:PivotTo(pos*CFrame.new(Vector3.new(0,1,0))) end task.wait() end end)
+p.Destroying:Connect(function() for _,i in _____limbs do i:Destroy() end end)
 while true do
 local function _plafron()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5,1,0))*CFrame.Angles(math.rad(20),0,0) end
 local function _praback()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,1,0))*CFrame.Angles(math.rad(-20),0,0) end
