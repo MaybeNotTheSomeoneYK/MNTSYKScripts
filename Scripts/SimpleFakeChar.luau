@@ -31,7 +31,7 @@ else
 i:GetPropertyChangedSignal("Parent"):Connect(function()
 local e,_=pcall(function()i.Parent=c end)
 if not e then
-local e=Instance.new(e.ClassName,c)
+local e=Instance.new(i.ClassName,c)
 if e:IsA("BasePart") then e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name end
 end
 end)
