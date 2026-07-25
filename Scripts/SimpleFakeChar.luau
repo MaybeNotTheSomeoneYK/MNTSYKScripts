@@ -128,6 +128,10 @@ local function _pla()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5
 local function _pra()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,1,0))*CFrame.Angles(math.rad(0),0,0) end
 local function _pll()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-.5,-1,0))*CFrame.Angles(math.rad(0),0,0) end
 local function _prl()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(.5,-1,0))*CFrame.Angles(math.rad(0),0,0) end
+local function _plasit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5,1,0))*CFrame.Angles(math.rad(90),0,0) end
+local function _prasit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,1,0))*CFrame.Angles(math.rad(90),0,0) end
+local function _pllsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-.5,-1,0))*CFrame.Angles(math.rad(90),0,0) end
+local function _prlsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(.5,-1,0))*CFrame.Angles(math.rad(90),0,0) end
 if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").MoveDirection.Magnitude > 0 then
 local __tempa=task.spawn(function() 
 local a=0 
@@ -155,6 +159,8 @@ repeat
 _____limbs.la:PivotTo(_plaup())_____limbs.ra:PivotTo(_praup())_____limbs.rl:PivotTo(_prl())_____limbs.ll:PivotTo(_pll())
 task.wait()
 until (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):GetState()==Enum.HumanoidStateType.Landed
+elseif (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Sit then
+_____limbs.la:PivotTo(_plasit())_____limbs.rl:PivotTo(_prlsit())_____limbs.ra:PivotTo(_prasit())_____limbs.ll:PivotTo(_pllsit())
 else
 _____limbs.la:PivotTo(_pla())_____limbs.rl:PivotTo(_prl())_____limbs.ra:PivotTo(_pra())_____limbs.ll:PivotTo(_pll())
 task.wait()
