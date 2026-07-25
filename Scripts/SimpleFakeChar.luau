@@ -27,7 +27,9 @@ local function _func(c)
 c:WaitForChild("Humanoid").RequiresNeck=false 
 c:WaitForChild("Humanoid").HipHeight=2
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
-c.PrimaryPart.CanCollide=true
+c.PrimaryPart.CanCollide=true 
+c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
+repeat
 for _,i in c:GetChildren() do 
 if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then 
 i:Destroy() 
@@ -41,7 +43,7 @@ end
 end)
 end
 end
-c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
+until not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)
 end
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
