@@ -16,7 +16,7 @@ ll=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://109302
 rl=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://93063343924594")p.Locked=true p.Size=Vector3.new(1,2,1)p.PivotOffset=CFrame.new(Vector3.new(0,1,0))_n(p)return p end)();
 }
 
-local prefix = nil
+local prefix = https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/MNTSYKScripts/refs/heads/main/UniversalAsset/Prefix.txt
 local function pprint(...)
 local str = table.concat({...}," ")
 print("\n\n\n"..(prefix and prefix or "[MNTSYKScripts]\n")..str.."\n\n\n")
