@@ -29,6 +29,7 @@ c:WaitForChild("Humanoid").HipHeight=3.5
 c:WaitForChild("Humanoid").CameraOffset=Vector3.new(0,-1.5,0)
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
 c.PrimaryPart.CanCollide=true 
+c:WaitForChild("Humanoid").MaxHealth=math.huge c:WaitForChild("Humanoid").Health=math.huge
 c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
 task.spawn(function()repeat
 for _,i in c:GetChildren() do 
@@ -36,10 +37,10 @@ if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then
 i:Destroy() 
 else
 i:GetPropertyChangedSignal("Parent"):Connect(function()
-local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) end end)
+local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end end)
 if not e then
 local e=Instance.new(i.ClassName,c)
-if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0)end
+if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.hugeend
 end
 end)
 end
