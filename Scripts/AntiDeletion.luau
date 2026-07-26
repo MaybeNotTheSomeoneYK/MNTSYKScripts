@@ -1,4 +1,4 @@
-local prefix = game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/ScriptForRblxDevelopers/refs/heads/main/UniversalAsset/Prefix.txt",true)
+local prefix = game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/MNTSYKScripts/refs/heads/main/UniversalAsset/Prefix.txt",true)
 local function pprint(...)
   local str = table.concat({...}," ")
   print("\n\n\n"..(prefix and prefix or "[MNTSYKScripts]\n")..str.."\n\n\n")
