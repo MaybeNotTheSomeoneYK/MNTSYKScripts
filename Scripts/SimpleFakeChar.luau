@@ -30,7 +30,6 @@ c:WaitForChild("Humanoid").CameraOffset=Vector3.new(0,-1.5,0)
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
 c.PrimaryPart.CanCollide=true 
 c:WaitForChild("Humanoid").MaxHealth=math.huge c:WaitForChild("Humanoid").Health=math.huge
-c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
 task.spawn(function()repeat
 for _,i in c:GetChildren() do 
 if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then 
