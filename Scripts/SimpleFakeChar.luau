@@ -45,7 +45,7 @@ end)
 end
 end
 task.wait()
-until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)end)) or not(c==p.Character)
+until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)) or not(c==p.Character)
 if not (c==p.Character) then c:Destro() end
 end
 p.CharacterAdded:Connect(_func)
