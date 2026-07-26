@@ -45,8 +45,8 @@ end)
 end
 end
 task.wait()
-until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)) or not(c==p.Character)
-if not (c==p.Character) then c:Destro() end
+until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)) or not(c==p.Character)end)
+if not (c==p.Character) then c:Destroy() end
 end
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
