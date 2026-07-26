@@ -25,7 +25,8 @@ return function(p)
 pprint("This script still currently under construction, please expect the script to not function properly")
 local function _func(c)
 c:WaitForChild("Humanoid").RequiresNeck=false 
-c:WaitForChild("Humanoid").HipHeight=2
+c:WaitForChild("Humanoid").HipHeight=3
+c:WaitForChild("Humanoid").CameraOffsetVector3.new(0,-1,0)
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
 c.PrimaryPart.CanCollide=true 
 c:WaitForChild("Humanoid").Died:Connect(function()p:LoadCharacterAsync()end)
@@ -35,10 +36,10 @@ if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then
 i:Destroy() 
 else
 i:GetPropertyChangedSignal("Parent"):Connect(function()
-local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=2 end end)
+local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=3 i.CameraOffsetVector3.new(0,-1,0) end end)
 if not e then
 local e=Instance.new(i.ClassName,c)
-if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=2 end
+if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3 i.CameraOffsetVector3.new(0,-1,0)end
 end
 end)
 end
@@ -115,7 +116,7 @@ end)
 end
 __z(i)
 end
-task.spawn(function()while true do (p:FindFirstChildOfClass("Backpack")or Instance.new("Folder")):ClearAllChildren() if _____limbs.t_ then _____limbs.t_.Color=(({BrickColor.new("Bright red").Color,BrickColor.new("Bright blue").Color,BrickColor.new("Earth green").Color,BrickColor.new("Bright violet").Color,BrickColor.new("Bright orange").Color,BrickColor.new("Bright yellow").Color,BrickColor.new("Light reddish violet").Color,BrickColor.new("Brick yellow").Color})[(((function(n)local v=0;for i=1,#n do local cv=string.byte(string.sub(n,i,i)) local ri=#n-i+1;if #n%2==1 then ri-=1 end;if ri%4>=2 then cv=-cv end;v+=cv end;return v end)(p.Name)) % 8) + 1])_____limbs.t_:PivotTo(pos)_____limbs.h_:PivotTo(pos*CFrame.new(Vector3.new(0,1,0))) end task.wait() end end)
+task.spawn(function()while true do (p:FindFirstChildOfClass("Backpack")or Instance.new("Folder")):ClearAllChildren() if _____limbs.t_ then _____limbs.t_.Color=(({BrickColor.new("Bright red").Color,BrickColor.new("Bright blue").Color,BrickColor.new("Earth green").Color,BrickColor.new("Bright violet").Color,BrickColor.new("Bright orange").Color,BrickColor.new("Bright yellow").Color,BrickColor.new("Light reddish violet").Color,BrickColor.new("Brick yellow").Color})[(((function(n)local v=0;for i=1,#n do local cv=string.byte(string.sub(n,i,i)) local ri=#n-i+1;if #n%2==1 then ri-=1 end;if ri%4>=2 then cv=-cv end;v+=cv end;return v end)(p.Name)) % 8) + 1])_____limbs.t_:PivotTo(pos*CFrame.new(Vector3.new(0,-1,0)))_____limbs.h_:PivotTo(pos) end task.wait() end end)
 p:GetPropertyChangedSignal("Parent"):Connect(function() for _,i in _____limbs do i:Destroy() end end)
 local function _plafron()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5,1,0))*CFrame.Angles(math.rad(20),0,0) end
 local function _praback()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,1,0))*CFrame.Angles(math.rad(-20),0,0) end
