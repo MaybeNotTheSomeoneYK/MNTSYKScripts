@@ -40,7 +40,7 @@ i:GetPropertyChangedSignal("Parent"):Connect(function()
 local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end end)
 if not e then
 local e=Instance.new(i.ClassName,c)
-if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.hugeend
+if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end
 end
 end)
 end
