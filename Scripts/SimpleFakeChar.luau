@@ -44,7 +44,8 @@ end)
 end
 end
 task.wait()
-until not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)end)
+until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)end)) or not(c==p.Character)
+if not (c==p.Character) then c:Destro() end
 end
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
@@ -115,8 +116,7 @@ end
 __z(i)
 end
 task.spawn(function()while true do (p:FindFirstChildOfClass("Backpack")or Instance.new("Folder")):ClearAllChildren() if _____limbs.t_ then _____limbs.t_.Color=(({BrickColor.new("Bright red").Color,BrickColor.new("Bright blue").Color,BrickColor.new("Earth green").Color,BrickColor.new("Bright violet").Color,BrickColor.new("Bright orange").Color,BrickColor.new("Bright yellow").Color,BrickColor.new("Light reddish violet").Color,BrickColor.new("Brick yellow").Color})[(((function(n)local v=0;for i=1,#n do local cv=string.byte(string.sub(n,i,i)) local ri=#n-i+1;if #n%2==1 then ri-=1 end;if ri%4>=2 then cv=-cv end;v+=cv end;return v end)(p.Name)) % 8) + 1])_____limbs.t_:PivotTo(pos)_____limbs.h_:PivotTo(pos*CFrame.new(Vector3.new(0,1,0))) end task.wait() end end)
-p.Destroying:Connect(function() for _,i in _____limbs do i:Destroy() end end)
-while true do
+p:GetPropertyChangedSignal("Parent"):Connect(function() for _,i in _____limbs do i:Destroy() end end)
 local function _plafron()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-1.5,1,0))*CFrame.Angles(math.rad(20),0,0) end
 local function _praback()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,1,0))*CFrame.Angles(math.rad(-20),0,0) end
 local function _pllfron()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-.5,-1,0))*CFrame.Angles(math.rad(20),0,0) end
@@ -135,6 +135,7 @@ local function _plasit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-
 local function _prasit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(1.5,.5,.5))*CFrame.Angles(math.rad(90),0,0) end
 local function _pllsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-.5,-1,0))*CFrame.Angles(math.rad(90),0,0) end
 local function _prlsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(.5,-1,0))*CFrame.Angles(math.rad(90),0,0) end
+while true do
 if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").MoveDirection.Magnitude > 0 then
 local __tempa=task.spawn(function() 
 local a=0 
