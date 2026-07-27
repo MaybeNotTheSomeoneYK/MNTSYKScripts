@@ -30,6 +30,7 @@ c:WaitForChild("Humanoid").HipHeight=3.5
 c:WaitForChild("Humanoid").CameraOffset=Vector3.new(0,-1.5,0)
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
 c.PrimaryPart.CanCollide=true 
+c.PrimaryPart:ClearAllChildren()
 c:WaitForChild("Humanoid").MaxHealth=math.huge c:WaitForChild("Humanoid").Health=math.huge
 task.spawn(function()repeat
 for _,i in c:GetChildren() do 
