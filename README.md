@@ -16,7 +16,7 @@ Screenshot of AdminPanel.luau version build-071626-1007-fixedhelpcmd usage in [p
 
 <img width="492" height="255" alt="Screenshot 2026-07-16 221224" src="https://github.com/user-attachments/assets/68bc1107-0172-4b8f-ae63-fad96e786abf" />
 
-Footage of SimpleFakeChar.luau version 25/07/26 in [pox's game, no sense to do anything](https://www.roblox.com/games/122130663121656/poxs-game-no-sense-to-do-anything) (GIF Compressor used, low quality warning):
+Footage of SimpleFakeChar.luau version 07/25/26 in [pox's game, no sense to do anything](https://www.roblox.com/games/122130663121656/poxs-game-no-sense-to-do-anything) (GIF Compressor used, low quality warning):
 
 <img width="426" height="410" alt="Recording 2026-07-25 153307" src="https://github.com/user-attachments/assets/e4584af6-6ebc-44ea-99e5-1b4f81006fb9" />
 
