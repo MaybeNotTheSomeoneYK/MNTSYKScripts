@@ -29,8 +29,7 @@ c:WaitForChild("Humanoid").RequiresNeck=false
 c:WaitForChild("Humanoid").HipHeight=3.5
 c:WaitForChild("Humanoid").CameraOffset=Vector3.new(0,-1.5,0)
 c.PrimaryPart=c:WaitForChild("HumanoidRootPart")
-c.PrimaryPart.CanCollide=true 
-c.PrimaryPart:ClearAllChildren()
+c.PrimaryPart.CanCollide=true
 c:WaitForChild("Humanoid").MaxHealth=math.huge c:WaitForChild("Humanoid").Health=math.huge
 task.spawn(function()repeat
 for _,i in c:GetChildren() do 
@@ -171,7 +170,7 @@ task.cancel(__tempa)
 _sfx:Stop()
 _sfx:Destroy()
 elseif  table.find({Enum.HumanoidStateType.Jumping,Enum.HumanoidStateType.Freefall},(p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):GetState()) then
-if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx.PlayOnRemove=true _sfx:Destroy() end
+if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx.Ended:Wait() _sfx:Destroy() end
 repeat
 _____limbs.la:PivotTo(_plaup())_____limbs.ra:PivotTo(_praup())_____limbs.rl:PivotTo(_prl())_____limbs.ll:PivotTo(_pll())
 task.wait()
