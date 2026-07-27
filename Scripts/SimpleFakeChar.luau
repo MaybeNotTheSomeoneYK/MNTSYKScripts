@@ -6,6 +6,7 @@ table.insert(t,string.split(__c,"")[math.random(1,#__c)])
 end
 i.Name=table.concat(t,"")
 i:GetPropertyChangedSignal("Name"):Once(function()_n(i)end)
+return i
 end
 local __limbs = {
 h_=(function()local p=game.AssetService:CreateMeshPartAsync("rbxassetid://5591363797")p.Locked=true p.Size=Vector3.new(1.25,1.25,1.25)p.PivotOffset=CFrame.new(Vector3.new(0,-.5,0))_n(p) return p end)();
@@ -35,22 +36,24 @@ for _,i in c:GetChildren() do
 if not i:IsA("Humanoid") and i.Name~="HumanoidRootPart" then 
 i:Destroy() 
 else
-i:GetPropertyChangedSignal("Parent"):Connect(function()
 local e,_=pcall(function()i.Parent=c if i:IsA("BasePart") then c.PrimaryPart=i else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end end)
 if not e then
 local e=Instance.new(i.ClassName,c)
-if e:IsA("BasePart") then c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end
+if e:IsA("BasePart") then e.Size=Vector3.new(2,2,1) c.PrimaryPart = e e.Size=i.Size e.Transparency=i.Transparency e.Name=i.Name else i.HipHeight=3.5 i.CameraOffset=Vector3.new(0,-1.5,0) i.MaxHealth=math.huge i.Health=math.huge end
 end
-end)
 end
 end
 task.wait()
 until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")end)) or not(c==p.Character)end)
 if not (c==p.Character) then c:Destroy() end
 end
+task.spawn(function() 
+local sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart")sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.5,.5,1)sm.Parent.Color=Color3.new(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm)
+while true do if not pcall(function() sm.Parent=(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart") end) then sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart")sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.5,.5,1)sm.Parent.Color=Color3.new(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm) end task.wait() end
+end)
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
-task.spawn(function()while true do local a,b=pcall(function()p.Character.Parent=workspace pos=p.Character:GetPivot()end)if not a then p:LoadCharacterAsync()p.Character:PivotTo(pos)end task.wait()end end)
+task.spawn(function()while true do local a,b=pcall(function()local c=p.Character c:WaitForChild("Humanoid").RequiresNeck=false c:WaitForChild("Humanoid").HipHeight=3.5 c:WaitForChild("Humanoid").CameraOffset=Vector3.new(0,-1.5,0)c.PrimaryPart=c:WaitForChild("HumanoidRootPart")c.PrimaryPart.CanCollide=true c:WaitForChild("Humanoid").MaxHealth=math.huge c:WaitForChild("Humanoid").Health=math.huge c.Parent=workspace pos=c:GetPivot()end)if not a then p:LoadCharacterAsync()p.Character:PivotTo(pos)end task.wait()end end)
 p.Character=nil
 local __i=table.clone(__limbs)
 local _____limbs={}
@@ -138,6 +141,11 @@ local function _pllsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(-
 local function _prlsit()return _____limbs.t_:GetPivot()*CFrame.new(Vector3.new(.5,-1,0))*CFrame.Angles(math.rad(90),0,0) end
 while true do
 if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").MoveDirection.Magnitude > 0 then
+local _sfx=_n(Instance.new("Sound",_____limbs.t_))
+_sfx.SoundId="rbxassetid://134989913102034"
+_sfx.Volume=1
+_sfx.Looped=true
+_sfx:Play()
 local __tempa=task.spawn(function() 
 local a=0 
 while true do
@@ -159,7 +167,10 @@ repeat
 task.wait()
 until (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").MoveDirection.Magnitude == 0
 task.cancel(__tempa)
+_sfx:Stop()
+_sfx:Destroy()
 elseif  table.find({Enum.HumanoidStateType.Jumping,Enum.HumanoidStateType.Freefall},(p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):GetState()) then
+if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.Volume=1 _sfx.PlayOnRemove=true _sfx:Destroy() end
 repeat
 _____limbs.la:PivotTo(_plaup())_____limbs.ra:PivotTo(_praup())_____limbs.rl:PivotTo(_prl())_____limbs.ll:PivotTo(_pll())
 task.wait()
