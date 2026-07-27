@@ -11,6 +11,11 @@ Right after you leave the server, the script will automactically stop by itself
 ### [@Bakonowychlopak123](https://www.roblox.com/users/1768834005/profile)
 Uploader of the loadstring module
 
+# 📃 How each scripts works
+<img width="908" height="524" alt="AntiDeletionMap" src="https://github.com/user-attachments/assets/98525a5f-7d3d-4249-9197-5c735399ff44" />
+<img width="908" height="524" alt="AdminPanelMap" src="https://github.com/user-attachments/assets/60a801f5-e760-4ed6-9efd-dd85dcbeea37" />
+<img width="908" height="524" alt="SimpleFakeCharMap" src="https://github.com/user-attachments/assets/823483c4-0a35-424c-bad4-2ad0c5d213fd" />
+
 # 📷 Screenshots
 Screenshot of AdminPanel.luau version build-071626-1007-fixedhelpcmd usage in [pox's game, no sense to do anything](https://www.roblox.com/games/122130663121656/poxs-game-no-sense-to-do-anything):
 
