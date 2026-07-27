@@ -48,7 +48,7 @@ until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")en
 if not (c==p.Character) then c:Destroy() end
 end
 task.spawn(function() 
-local sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.5,.5,1)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm)
+local sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm)
 while true do if not pcall(function() sm.Parent=(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart") end) then sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25,.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm) end task.wait() end
 end)
 p.CharacterAdded:Connect(_func)
