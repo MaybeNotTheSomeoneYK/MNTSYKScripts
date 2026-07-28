@@ -170,7 +170,7 @@ task.cancel(__tempa)
 _sfx:Stop()
 _sfx:Destroy()
 elseif  table.find({Enum.HumanoidStateType.Jumping,Enum.HumanoidStateType.Freefall},(p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):GetState()) then
-task.spawn(function()if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx:Play() _sfx.Ended:Wait() _sfx:Destroy() end end)
+task.spawn(function()if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then task.spawn(function()local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx:Play() _sfx.Ended:Wait() _sfx:Destroy()end) end end)
 repeat
 _____limbs.la:PivotTo(_plaup())_____limbs.ra:PivotTo(_praup())_____limbs.rl:PivotTo(_prl())_____limbs.ll:PivotTo(_pll())
 task.wait()
