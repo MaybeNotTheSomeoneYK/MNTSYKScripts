@@ -48,8 +48,8 @@ until (not pcall(function()c.Parent=workspace:FindFirstChildOfClass("Terrain")en
 if not (c==p.Character) then c:Destroy() end
 end
 task.spawn(function() 
-local sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25,.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm)
-while true do if not pcall(function() sm.Parent=(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart") end) then sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25,.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0 _n(sm) end task.wait() end
+local sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25,.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0.75 _n(sm)
+while true do if not pcall(function() sm.Parent=(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart") end) then sm=Instance.new("SpecialMesh",(p.Character or p.CharacterAdded:Wait()):WaitForChild("HumanoidRootPart"))sm.MeshType=Enum.MeshType.Sphere sm.Scale=Vector3.new(.25,.25,.5)sm.Parent.Color=Color3.fromRGB(0,255,0)sm.Parent.Material=Enum.Material.Neon sm.Parent.Transparency=0.75 _n(sm) end task.wait() end
 end)
 p.CharacterAdded:Connect(_func)
 local pos=CFrame.new(Vector3.new(0,0,0),Vector3.new(0,0,0))
@@ -170,7 +170,7 @@ task.cancel(__tempa)
 _sfx:Stop()
 _sfx:Destroy()
 elseif  table.find({Enum.HumanoidStateType.Jumping,Enum.HumanoidStateType.Freefall},(p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid"):GetState()) then
-task.spawn(function()if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx.Ended:Wait() _sfx:Destroy() end end)
+task.spawn(function()if (p.Character or p.CharacterAdded:Wait()):FindFirstChildOfClass("Humanoid").Jump then local _sfx=_n(Instance.new("Sound",_____limbs.t_)) _sfx.SoundId="rbxassetid://100936483086925" _sfx.Volume=1 _sfx:Play() _sfx.Ended:Wait() _sfx:Destroy() end end)
 repeat
 _____limbs.la:PivotTo(_plaup())_____limbs.ra:PivotTo(_praup())_____limbs.rl:PivotTo(_prl())_____limbs.ll:PivotTo(_pll())
 task.wait()
