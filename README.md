@@ -1,4 +1,3 @@
-<img width="908" height="524" alt="HDAdminRuntimeLoaderMap" src="https://github.com/user-attachments/assets/3a3899a8-c3da-48d6-bf0c-b9db361be723" />
 # 🚀 Usage
 ```luau
 require(require(123068958552495)("vLuau"))(game.HttpService:GetAsync("https://raw.githubusercontent.com/MaybeNotTheSomeoneYK/MNTSYKScripts/refs/heads/main/Scripts/SCRIPTNAME.luau",true))()(game.Players.USERNAME)
