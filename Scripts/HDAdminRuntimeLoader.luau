@@ -18,6 +18,9 @@ return function(p)
     ms.Name = "Settings"
     require(3239236979):Initialize(fakeFolder)
     repeat task.wait() until _G.HDAdminMain
+  else
+    pwarn("HD Admin already exists!")
+  end
     pprint([[
       Overwriting the following functions...:
       \t- hd.cf:GetRankName()
@@ -58,9 +61,6 @@ return function(p)
 		_G.HDAdminMain.signals.Notice:FireClient(speaker, {"HD Ruler","\""..args[1].."\" command is now enabled."})
 	end;
 	};
-    pprint("Proceeding to give the runner top rank...")
-  else
-    pwarn("HD Admin already exists!, proceeding to give the runner top rank anyways...")
-  end
-  _G.HDAdminMain:GetModule("cf"):SetRank(p, 6, math.huge, "Perm")
+  	pprint("Proceeding to give the runner top rank...")
+  	_G.HDAdminMain:GetModule("cf"):SetRank(p, 6, math.huge, "Perm")
 end
