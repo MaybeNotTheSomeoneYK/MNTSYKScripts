@@ -20,9 +20,10 @@ return function(p)
     repeat task.wait() until _G.HDAdminMain
     pprint([[
       Overwriting the following functions...:
-      \t- cf:GetRankName()
-      \t- cf:GetRankId()
-      \t- cf:CheckRankExists()
+      \t- hd.cf:GetRankName()
+      \t- hd.cf:GetRankId()
+      \t- hd.cf:CheckRankExists()
+      \t- hd.cmds
     ]])
     repeat task.wait() until _G.HDAdminMain.GetModule
     repeat task.wait() until _G.HDAdminMain:GetModule("cf").GetRankName
@@ -34,6 +35,28 @@ return function(p)
     _G.HDAdminMain:GetModule("cf").GetRankName = function(self,id) if id==math.huge and old1(id)=="" then return "HDAdminRuntimeLoaderUser" end old1(id) end
     _G.HDAdminMain:GetModule("cf").CheckRankExists = function(self,id) if id=="HDAdminRuntimeLoaderUser" and old2(id)==false then return true end old2(id) end
     _G.HDAdminMain:GetModule("cf").GetRankId = function(self,id) if id=="HDAdminRuntimeLoaderUser" and old3(id)==0 then return math.huge end old3(id) end
+    repeat task.wait() until _G.HDAdminMain.commands
+    _G.HDAdminMain.commands.bcmd = 	{
+	Name = "bcmd";
+	Aliases	= {"disable"};
+	Prefixes = {_G.HDAdminMain.settings.Prefix};
+	Rank = math.huge;
+	RankLock = false;
+	Loopable = false;
+	Tags = {};
+	Description = "";
+	Contributors = {"qa"};
+	Args = {"text"};
+	Function = function(speaker, args)
+		if args[1]=="bcmd" then return end
+    if not _G.HDAdminMain.commands[args[1]] then return end
+    _G.HDAdminMain.commands[args[1]].DisabledByOwner=true
+	end;
+  UnFunction = function(speaker, args)
+    if not _G.HDAdminMain.commands[args[1]] then return end
+    _G.HDAdminMain.commands[args[1]].DisabledByOwner=false
+	end;
+	};
     pprint("Proceeding to give the runner top rank...")
   else
     pwarn("HD Admin already exists!, proceeding to give the runner top rank anyways...")
