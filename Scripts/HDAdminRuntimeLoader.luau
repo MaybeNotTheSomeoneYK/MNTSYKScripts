@@ -49,12 +49,14 @@ return function(p)
 	Args = {"text"};
 	Function = function(speaker, args)
 		if args[1]=="bcmd" then return end
-    if not _G.HDAdminMain.commands[args[1]] then return end
-    _G.HDAdminMain.commands[args[1]].DisabledByOwner=true
+    	if not _G.HDAdminMain.commands[args[1]] then return end
+    	_G.HDAdminMain.commands[args[1]].DisabledByOwner=true
+		_G.HDAdminMain.signals.Notice:FireClient(speaker, {"HD Ruler","\""..args[1].."\" command is now disabled."})
 	end;
-  UnFunction = function(speaker, args)
-    if not _G.HDAdminMain.commands[args[1]] then return end
-    _G.HDAdminMain.commands[args[1]].DisabledByOwner=false
+  	UnFunction = function(speaker, args)
+    	if not _G.HDAdminMain.commands[args[1]] then return end
+    	_G.HDAdminMain.commands[args[1]].DisabledByOwner=false
+		_G.HDAdminMain.signals.Notice:FireClient(speaker, {"HD Ruler","\""..args[1].."\" command is now enabled."})
 	end;
 	};
     pprint("Proceeding to give the runner top rank...")
