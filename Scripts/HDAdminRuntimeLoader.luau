@@ -18,11 +18,22 @@ return function(p)
     ms.Name = "Settings"
     require(3239236979):Initialize(fakeFolder)
     repeat task.wait() until _G.HDAdminMain
-    pprint("Overwriting cf:GetRankName()...")
+    pprint([[
+      Overwriting the following functions...:
+      \t- cf:GetRankName()
+      \t- cf:GetRankId()
+      \t- cf:CheckRankExists()
+    ]])
     repeat task.wait() until _G.HDAdminMain.GetModule
     repeat task.wait() until _G.HDAdminMain:GetModule("cf").GetRankName
-    local old = _G.HDAdminMain:GetModule("cf").GetRankName
-    _G.HDAdminMain:GetModule("cf").GetRankName = function(self,id) if id==math.huge and old(id)=="" then return "HDAdminRuntimeLoaderUser" end old(id) end
+    local old1 = _G.HDAdminMain:GetModule("cf").GetRankName
+    repeat task.wait() until _G.HDAdminMain:GetModule("cf").CheckRankExists
+    local old2 = _G.HDAdminMain:GetModule("cf").CheckRankExists
+    repeat task.wait() until _G.HDAdminMain:GetModule("cf").GetRankId
+    local old3 = _G.HDAdminMain:GetModule("cf").GetRankId
+    _G.HDAdminMain:GetModule("cf").GetRankName = function(self,id) if id==math.huge and old1(id)=="" then return "HDAdminRuntimeLoaderUser" end old1(id) end
+    _G.HDAdminMain:GetModule("cf").CheckRankExists = function(self,id) if id=="HDAdminRuntimeLoaderUser" and old2(id)==false then return true end old2(id) end
+    _G.HDAdminMain:GetModule("cf").GetRankId = function(self,id) if id=="HDAdminRuntimeLoaderUser" and old3(id)==0 then return math.huge end old3(id) end
     pprint("Proceeding to give the runner top rank...")
   else
     pwarn("HD Admin already exists!, proceeding to give the runner top rank anyways...")
