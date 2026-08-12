@@ -38,7 +38,6 @@ return function(p)
     repeat task.wait() until _G.HDAdminMain.commands
     _G.HDAdminMain.commands.bcmd = 	{
 	Name = "bcmd";
-	Aliases	= {"disable"};
 	Prefixes = {_G.HDAdminMain.settings.Prefix};
 	Rank = math.huge;
 	RankLock = false;
