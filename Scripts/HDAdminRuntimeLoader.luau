@@ -22,7 +22,7 @@ return function(p)
     repeat task.wait() until _G.HDAdminMain.GetModule
     repeat task.wait() until _G.HDAdminMain:GetModule("cf").GetRankName
     local old = _G.HDAdminMain:GetModule("cf").GetRankName
-    _G.HDAdminMain:GetModule("cf").GetRankName = function(self,id) if id==math.huge then return "HDAdminRuntimeLoaderUser" end old(id) end
+    _G.HDAdminMain:GetModule("cf").GetRankName = function(self,id) if id==math.huge and old(id)=="" then return "HDAdminRuntimeLoaderUser" end old(id) end
     pprint("Proceeding to give the runner top rank...")
   else
     pwarn("HD Admin already exists!, proceeding to give the runner top rank anyways...")
